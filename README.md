@@ -1,4 +1,4 @@
-![docs/preview.png](preview.png)
+![Дашборд системы обучения](docs/preview.png)
 
 **Открыть дашборд:** https://aysvoch.github.io/uchis-vspominaya/
 
