@@ -160,16 +160,111 @@ footer .f-note{font-size:.83rem;color:var(--ink-soft);max-width:72ch}
   .grid2{grid-template-columns:1fr;gap:22px}
   .week{grid-template-columns:repeat(2,1fr)}
 }
+
+/* editor */
+.day-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
+.day-focus{font-size:.95rem;color:var(--ink);flex:1}
+.ebtn{font-family:var(--body);font-weight:600;font-size:.82rem;border-radius:9px;padding:8px 12px;cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--ink);transition:background .12s,border-color .12s,transform .06s}
+.ebtn:hover{background:#EFEFEA;border-color:#CBD3CC}
+.ebtn:active{transform:translateY(1px)}
+.ebtn.ghost{flex:none;white-space:nowrap}
+.ebtn.done{background:var(--theory);color:#fff;border-color:var(--theory)}
+.ebtn.rec{background:var(--project);color:#3a2a06;border-color:var(--project)}
+.ebtn.reset{color:#9a4a4a}
+.edit-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.shift{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--ink-soft);flex-wrap:wrap}
+.shift button{font-family:var(--body);font-weight:600;font-size:.8rem;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:6px 9px;cursor:pointer;font-variant-numeric:tabular-nums}
+.shift button:hover{background:#EFEFEA}
+.hints{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.hint{font-size:.82rem;color:var(--ink-soft);background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--rest);border-radius:0 8px 8px 0;padding:8px 11px}
+.hint.warn{border-left-color:#D98A3D;color:#7a4d1c;background:#FBF3E9}
+.erows{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.erow{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--routine);border-radius:0 10px 10px 0;padding:9px 11px}
+.etimes{display:flex;align-items:center;gap:4px}
+.etimes input[type=time]{font-family:var(--body);font-size:.82rem;border:1px solid var(--line);border-radius:7px;padding:4px 6px;background:#fff;color:var(--ink);font-variant-numeric:tabular-nums}
+.etimes input[type=time]:focus{outline:2px solid var(--cases);outline-offset:0}
+.edash{color:var(--ink-soft);font-size:.8rem}
+.enm{font-weight:600;font-size:.88rem;min-width:0}
+.enm small{display:block;font-weight:500;font-size:.74rem;color:var(--ink-soft)}
+.edel{border:none;background:transparent;color:var(--ink-soft);font-size:1.3rem;line-height:1;cursor:pointer;padding:2px 8px;border-radius:6px}
+.edel:hover{background:#F3D9D9;color:#a33}
+.addpanel{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;padding:10px;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.chip{font-family:var(--body);font-size:.78rem;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:100px;padding:5px 11px;cursor:pointer;border-left:3px solid var(--routine)}
+.chip:hover{background:#EFEFEA}
+.edit-actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.edit-actions .ebtn{flex:1;min-width:132px;text-align:center}
+.autosave{font-size:.76rem;color:var(--ink-soft);text-align:center;padding:4px}
+.empty{font-size:.9rem;color:var(--ink-soft);text-align:center;padding:18px;border:1px dashed var(--line);border-radius:10px}
+.wf .mod{color:var(--project);font-weight:600}
+.erow.t-theory{border-left-color:var(--theory)}.chip.t-theory{border-left-color:var(--theory)}
+.erow.t-project{border-left-color:var(--project)}.chip.t-project{border-left-color:var(--project)}
+.erow.t-cases{border-left-color:var(--cases)}.chip.t-cases{border-left-color:var(--cases)}
+.erow.t-review{border-left-color:var(--review)}.chip.t-review{border-left-color:var(--review)}
+.erow.t-rest{border-left-color:var(--rest)}.chip.t-rest{border-left-color:var(--rest)}
+.erow.t-routine{border-left-color:var(--routine)}.chip.t-routine{border-left-color:var(--routine)}
+@media(max-width:420px){
+  .erow{grid-template-columns:1fr auto;row-gap:7px}
+  .etimes{grid-column:1 / -1}
+  .edit-actions .ebtn{min-width:104px}
+}
+
+/* toolbar / sync / custom / balance */
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 8px}
+.tbtn{font-family:var(--body);font-weight:600;font-size:.8rem;border:1px solid var(--line);background:var(--panel);color:var(--ink-soft);border-radius:100px;padding:7px 14px;cursor:pointer;transition:background .12s,color .12s,border-color .12s}
+.tbtn:hover{background:#EFEFEA;color:var(--ink);border-color:#CBD3CC}
+.balance{margin-bottom:14px}
+.blabel{font-size:.82rem;color:var(--ink);margin-bottom:6px}
+.blabel span{color:var(--ink-soft);font-size:.76rem;margin-left:4px}
+.btrack{position:relative;height:10px;background:var(--panel);border:1px solid var(--line);border-radius:100px;overflow:hidden}
+.bzone{position:absolute;top:0;bottom:0;background:rgba(64,188,134,.22)}
+.bfill{position:absolute;top:0;bottom:0;left:0;border-radius:100px;transition:width .25s}
+.bfill.ok{background:var(--theory)}
+.bfill.off{background:var(--project)}
+.ta{width:100%;box-sizing:border-box;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;line-height:1.4;border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff;color:var(--ink);resize:vertical;min-height:64px;word-break:break-all;margin-bottom:10px}
+.filelbl{display:inline-flex;align-items:center;cursor:pointer}
+.ebtn.wide{width:100%;margin-top:6px;background:var(--theory);color:#fff;border-color:var(--theory)}
+.chip.newb{border-left-color:var(--ink-soft);border-style:dashed}
+.nbform{flex-basis:100%;display:flex;flex-direction:column;gap:7px;margin-top:8px;padding-top:10px;border-top:1px solid var(--line)}
+.nbform input,.nbform select{font-family:var(--body);font-size:.84rem;border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:#fff;color:var(--ink)}
+.nbrow{display:flex;gap:8px}
+.nbrow select{flex:1}
+
+.ectrl{display:flex;align-items:center;gap:1px}
+.emv{border:none;background:transparent;color:var(--ink-soft);font-size:1rem;line-height:1;cursor:pointer;padding:3px 5px;border-radius:6px}
+.emv:hover:not(:disabled){background:#EFEFEA;color:var(--ink)}
+.emv:disabled{opacity:.28;cursor:default}
+
+.dfield{margin-bottom:14px}
+.dfield label{display:block;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:5px}
+.dinput{width:100%;box-sizing:border-box;font-family:var(--body);font-size:.9rem;border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff;color:var(--ink)}
+.dinput:focus{outline:2px solid var(--cases);outline-offset:0}
+.idealp{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin-bottom:12px}
+.ihint{font-size:.82rem;color:var(--ink-soft);margin-bottom:10px;line-height:1.4}
+.irow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.irow label{font-size:.84rem;color:var(--ink);font-weight:600}
+.irow input[type=time]{font-family:var(--body);font-size:.86rem;border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:#fff;color:var(--ink);font-variant-numeric:tabular-nums}
+.irow .ebtn.done{margin-left:auto}
+
+.flab{display:block;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:5px}
+.dta{width:100%;box-sizing:border-box;font-family:var(--body);font-size:.92rem;line-height:1.45;border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff;color:var(--ink);resize:vertical}
+.dta:focus{outline:2px solid var(--cases);outline-offset:0}
+.blk-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.blk-top .d-pill{margin-bottom:0}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <div class="eyebrow">Система обучения · Продакт-менеджмент</div>
+    <div class="eyebrow">Планировщик самообучения</div>
     <h1>Учишься не когда <em>читаешь</em>, а когда <em>вспоминаешь</em>.</h1>
     <p class="lede">Не гонись за часами - гонись за тем, что можешь вспомнить без подсказки.</p>
   </header>
+
+  <div class="toolbar">
+    <button class="tbtn" onclick="openWelcome()">? Как пользоваться</button>
+    <button class="tbtn" onclick="openSync()">⇄ Перенос между устройствами</button>
+  </div>
 
   <!-- 1 -->
   <section>
@@ -201,7 +296,7 @@ footer .f-note{font-size:.83rem;color:var(--ink-soft);max-width:72ch}
   </section>
 
   <footer>
-    <div class="f-meta">Учись, вспоминая · открытый метод самообучения</div>
+    <div class="f-meta">Собрал Aysvoch (tg), 2026</div>
     <div class="f-note">Пропущенный день ничего не рушит - система работает на дистанции, а не на идеальной серии. Сорвался - просто вернись завтра, без вины. Блоки - это леса, а не рельсы: подстраивай под то, как реально идёт голова.</div>
   </footer>
 
@@ -315,10 +410,210 @@ function rowHtml(id){
 }
 
 const CARD = {Пн:'Теория · Проект · Кейсы',Вт:'Теория + тренировка',Ср:'Теория · Проект · Кейсы',Чт:'Теория + тренировка',Пт:'Теория · Проект · Кейсы',Сб:'Бег · разбор недели',Вс:'Отдых, бег для себя'};
+/* ---- редактируемое расписание ---- */
+const LS_KEY='urs.sched.v1';
+let SCHED=(function(){ try{ return JSON.parse(localStorage.getItem(LS_KEY))||{}; }catch(e){ return {}; } })();
+function saveSched(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(SCHED)); }catch(e){} }
+function isCustom(d){ return !!SCHED[d]; }
+const LIB=Object.keys(BLOCKS).filter(id=>!BLOCKS[id].goto);
+const REC_SKELETON=['wake','breakfast','theory','pause','project','lunch','cases','review','english'];
+function tpl(id){ const b=BLOCKS[id]; return {id, start:(b.time&&b.time[0])||'', end:(b.time&&b.time[1])||''}; }
+function templateItems(d){ return DAYS[d].rows.map(tpl); }
+function recommendItems(){ return REC_SKELETON.map(tpl); }
+function toMin(t){ const m=/^(\d{1,2}):(\d{2})$/.exec(t||''); return m ? (+m[1])*60+(+m[2]) : null; }
+function toTime(min){ min=((min%1440)+1440)%1440; return String(Math.floor(min/60)).padStart(2,'0')+':'+String(min%60).padStart(2,'0'); }
+function sortByStart(a,b){ const x=toMin(a.start), y=toMin(b.start); if(x==null&&y==null) return 0; if(x==null) return 1; if(y==null) return -1; return x-y; }
+function dayItems(d){ const src=SCHED[d]||templateItems(d); return src.map(x=>({id:x.id,start:x.start,end:x.end})).filter(x=>BLOCKS[x.id]); }
+function commit(d,items){ SCHED[d]=items.map(x=>({id:x.id,start:x.start,end:x.end})); saveSched(); flash=true; renderDay(d); renderMain(); }
+function resetDay(d){ delete SCHED[d]; delete DAYINFO[d]; saveSched(); saveDayInfo(); flash=false; renderDay(d); renderMain(); }
+
+let editingDay=null, flash=false, showAdd=false;
+function setEdit(d,on){ editingDay=on?d:null; showAdd=false; flash=false; renderDay(d); }
+function evShift(d,mins){ const it=dayItems(d); it.forEach(x=>{ const s=toMin(x.start),e=toMin(x.end); if(s!=null)x.start=toTime(s+mins); if(e!=null)x.end=toTime(e+mins); }); commit(d,it); }
+function evTime(d,idx,which,val){ const it=dayItems(d); if(it[idx]){ it[idx][which]=val; commit(d,it); } }
+function evRemove(d,idx){ const it=dayItems(d); it.splice(idx,1); commit(d,it); }
+function smartTop(it){ const v=it.filter(x=>toMin(x.start)!=null).sort(sortByStart); if(!v.length) return {start:'09:00',end:'10:00'}; const fs=toMin(v[0].start); return {start:toTime(Math.max(0,fs-60)),end:toTime(fs)}; }
+function evAdd(d,id){ const it=dayItems(d); const s=smartTop(it); it.unshift({id,start:s.start,end:s.end}); showAdd=false; showNewBlock=false; commit(d,it); }
+function reflow(items){ const st=items.map(x=>toMin(x.start)).filter(v=>v!=null); let c=st.length?Math.min.apply(null,st):360; return items.map(x=>{ const s=toMin(x.start),e=toMin(x.end); const dur=(s!=null&&e!=null&&e>s)?e-s:blockDur(x.id); const a=c,b=c+dur; c=b; return {id:x.id,start:toTime(a),end:toTime(b)}; }); }
+function evUp(d,idx){ const it=dayItems(d); if(idx>0){ const t=it[idx-1]; it[idx-1]=it[idx]; it[idx]=t; commit(d,reflow(it)); } }
+function evDown(d,idx){ const it=dayItems(d); if(idx<it.length-1){ const t=it[idx+1]; it[idx+1]=it[idx]; it[idx]=t; commit(d,reflow(it)); } }
+function evSortTime(d){ const it=dayItems(d).sort(sortByStart); commit(d,it); }
+function evRecommend(d){ commit(d, recommendItems()); }
+function evReset(d){ resetDay(d); }
+function toggleAdd(d){ showAdd=!showAdd; renderDay(d); }
+function advise(items){
+  const out=[]; const deepT=['theory','project','cases']; let deep=0;
+  items.forEach(x=>{ const b=BLOCKS[x.id]; if(b&&deepT.includes(b.type)){ const s=toMin(x.start),e=toMin(x.end); if(s!=null&&e!=null&&e>s) deep+=e-s; } });
+  const hasRev=items.some(x=>BLOCKS[x.id]&&BLOCKS[x.id].type==='review');
+  const lateTheory=items.some(x=>BLOCKS[x.id]&&BLOCKS[x.id].type==='theory'&&toMin(x.start)!=null&&toMin(x.start)>=780);
+  const sorted=items.slice().sort(sortByStart); let noBreak=false;
+  for(let i=1;i<sorted.length;i++){ const a=BLOCKS[sorted[i-1].id],b=BLOCKS[sorted[i].id]; if(a&&b&&deepT.includes(a.type)&&deepT.includes(b.type)){ noBreak=true; break; } }
+  if(deep>360) out.push('\u26a0 Глубокой работы ~'+(Math.round(deep/6)/10)+'ч - выше потолка 4-6ч, день рискует уйти в имитацию.');
+  if(deep>0&&deep<120) out.push('\u00b7 Глубокой работы меньше 2ч - если это не день отдыха, можно добавить.');
+  if(!hasRev&&deep>0) out.push('\u26a0 Нет блока вспоминания - выученное быстро выветрится, добавь «Повторение».');
+  if(lateTheory) out.push('\u00b7 Тяжёлая теория после обеда - на свежую голову с утра легче.');
+  if(noBreak) out.push('\u00b7 Два фокус-блока подряд без паузы - вставь перерыв 50/10.');
+  if(!out.length) out.push('\u2713 Состав сбалансирован по принципам.');
+  return out;
+}
+function timeCell(x){ const sO=x.start||'', eO=x.end||''; if(!sO&&!eO) return '<span class="time"></span>'; return `<span class="time">${sO}${eO?`<span class="te">${eO}</span>`:''}</span>`; }
+function readRow(x){ const b=BLOCKS[x.id]; const tap=!b.routine;
+  return `<div class="brow ${tap?'tap':'routine'} t-${b.type}" ${tap?`onclick="openBlock('${x.id}','${x.start}','${x.end}')"`:''}>
+    ${timeCell(x)}
+    <span class="nm">${b.label}${b.tagline?`<small>${b.tagline}</small>`:''}</span>
+    ${tap?'<span class="chev">›</span>':'<span></span>'}
+  </div>`; }
+function editRow(x,idx,d,len){ const b=BLOCKS[x.id]; const rt=/^\d{1,2}:\d{2}$/;
+  return `<div class="erow t-${b.type}">
+    <div class="etimes">
+      <input type="time" value="${rt.test(x.start)?x.start:''}" onchange="evTime('${d}',${idx},'start',this.value)" aria-label="начало">
+      <span class="edash">–</span>
+      <input type="time" value="${rt.test(x.end)?x.end:''}" onchange="evTime('${d}',${idx},'end',this.value)" aria-label="конец">
+    </div>
+    <span class="enm">${b.label}${b.tagline?`<small>${b.tagline}</small>`:''}</span>
+    <div class="ectrl">
+      <button class="emv" onclick="evUp('${d}',${idx})" ${idx===0?'disabled':''} aria-label="выше">\u2191</button>
+      <button class="emv" onclick="evDown('${d}',${idx})" ${idx===len-1?'disabled':''} aria-label="ниже">\u2193</button>
+      <button class="edel" onclick="evRemove('${d}',${idx})" aria-label="убрать">\u00d7</button>
+    </div>
+  </div>`; }
+
+/* ---- свои блоки ---- */
+const LSB='urs.blocks.v1';
+let CUSTOM=(function(){ try{ return JSON.parse(localStorage.getItem(LSB))||{}; }catch(e){ return {}; } })();
+Object.assign(BLOCKS, CUSTOM);
+function saveCustom(){ try{ localStorage.setItem(LSB, JSON.stringify(CUSTOM)); }catch(e){} }
+function libIds(){ return Object.keys(BLOCKS).filter(id=>!BLOCKS[id].goto); }
+let showNewBlock=false;
+function toggleNewBlock(d){ showNewBlock=!showNewBlock; renderDay(d); }
+function createBlock(d){
+  const el=document.getElementById('nb-name'); const name=el?el.value.trim():'';
+  if(!name){ if(el) el.focus(); return; }
+  const type=(document.getElementById('nb-color')||{}).value||'routine';
+  const desc=((document.getElementById('nb-desc')||{}).value||'').trim();
+  const id='c'+Date.now().toString(36);
+  CUSTOM[id]={type,label:name,tagline:'своё',purpose:desc,howto:'',examples:[],diff:'',custom:true};
+  BLOCKS[id]=CUSTOM[id]; ORIG[id]={label:CUSTOM[id].label,tagline:CUSTOM[id].tagline,purpose:CUSTOM[id].purpose}; saveCustom(); showNewBlock=false; evAdd(d,id);
+}
+/* ---- индикатор баланса ---- */
+function deepMinutes(items){ const dt=['theory','project','cases']; let m=0; items.forEach(x=>{ const b=BLOCKS[x.id]; if(b&&dt.includes(b.type)){ const s=toMin(x.start),e=toMin(x.end); if(s!=null&&e!=null&&e>s) m+=e-s; } }); return m; }
+function balanceHtml(items){
+  const hh=Math.round(deepMinutes(items)/6)/10; const pct=Math.max(0,Math.min(100, hh/8*100));
+  const inZone=hh>=4&&hh<=6;
+  return `<div class="balance"><div class="blabel">Глубокая работа: <b>${hh}ч</b> <span>цель 4-6ч</span></div>
+    <div class="btrack"><div class="bzone" style="left:50%;width:25%"></div><div class="bfill ${inZone?'ok':'off'}" style="width:${pct}%"></div></div></div>`;
+}
+/* ---- перенос: экспорт / импорт / ссылка ---- */
+function payload(){ return {v:1, sched:SCHED, blocks:CUSTOM, dayinfo:DAYINFO, blocktext:BTEXT}; }
+function encState(o){ return btoa(unescape(encodeURIComponent(JSON.stringify(o)))); }
+function decState(str){ return JSON.parse(decodeURIComponent(escape(atob(str)))); }
+function applyState(o){ if(!o) return; if(o.blocks){ Object.assign(CUSTOM,o.blocks); Object.assign(BLOCKS,o.blocks); saveCustom(); } if(o.blocktext){ Object.assign(BTEXT,o.blocktext); Object.keys(o.blocktext).forEach(id=>{ if(BLOCKS[id]) Object.assign(BLOCKS[id],o.blocktext[id]); }); saveBText(); } if(o.dayinfo){ Object.assign(DAYINFO,o.dayinfo); saveDayInfo(); } if(o.sched){ SCHED=o.sched; saveSched(); } }
+function shareLink(){ return location.origin+location.pathname+'#s='+encState(payload()); }
+function openSync(){ openView({kind:'sync'}); }
+function copyText(t,btn){ try{ navigator.clipboard.writeText(t).then(()=>{ if(btn){ const o=btn.textContent; btn.textContent='Скопировано \u2713'; setTimeout(()=>btn.textContent=o,1200);} }); }catch(e){} }
+function doExportFile(){ try{ const blob=new Blob([JSON.stringify(payload(),null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='schedule.json'; a.click(); }catch(e){} }
+function importCode(){ const el=document.getElementById('imp-code'); const v=el?el.value.trim():''; if(!v) return; try{ let o; try{ o=decState(v); }catch(_){ o=JSON.parse(v); } applyState(o); stack=[]; overlay.classList.remove('open'); renderMain(); alert('Загружено. Открой день, чтобы увидеть.'); }catch(e){ alert('Не разобрал код - проверь, что скопирован целиком.'); } }
+function importFile(inp){ const f=inp.files&&inp.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ try{ applyState(JSON.parse(r.result)); stack=[]; overlay.classList.remove('open'); renderMain(); alert('Файл загружен.'); }catch(e){ alert('Файл не читается.'); } }; r.readAsText(f); }
+function renderSync(){
+  sheetTitle.textContent='Перенос и синхронизация';
+  const code=encState(payload());
+  sheetBody.innerHTML=`
+    <div class="d-sec"><p>Данные хранятся в этом браузере. Чтобы открыть на другом устройстве - перенеси их кодом, файлом или ссылкой.</p></div>
+    <div class="d-sec"><h4>Выгрузить</h4>
+      <textarea class="ta" readonly onclick="this.select()">${code}</textarea>
+      <div class="edit-actions">
+        <button class="ebtn" onclick="copyText(document.querySelector('.ta').value,this)">Копировать код</button>
+        <button class="ebtn" onclick="copyText(shareLink(),this)">Копировать ссылку</button>
+        <button class="ebtn" onclick="doExportFile()">Скачать файл</button>
+      </div></div>
+    <div class="d-sec"><h4>Загрузить</h4>
+      <textarea class="ta" id="imp-code" placeholder="Вставь код сюда"></textarea>
+      <div class="edit-actions">
+        <button class="ebtn rec" onclick="importCode()">Загрузить из кода</button>
+        <label class="ebtn filelbl">Загрузить файл<input type="file" accept="application/json,.json" style="display:none" onchange="importFile(this)"></label>
+      </div>
+      <div class="d-note">Загрузка заменит текущее расписание. Сначала выгрузи бэкап, если нужно.</div></div>`;
+}
+/* ---- онбординг ---- */
+const LSO='urs.onboarded.v1';
+function onboarded(){ try{ return !!localStorage.getItem(LSO); }catch(e){ return true; } }
+function finishOnboard(){ try{ localStorage.setItem(LSO,'1'); }catch(e){} back(); }
+function openWelcome(){ openView({kind:'welcome'}); }
+function renderWelcome(){
+  sheetTitle.textContent='Как это работает';
+  sheetBody.innerHTML=`
+    <div class="d-sec"><p>Это планировщик самообучения на одном принципе: <b>усваиваешь не когда читаешь, а когда вспоминаешь</b>. Перечитывание создаёт иллюзию знания; знание даёт то, что смог достать из памяти сам. Поэтому мерим не часы за текстом, а <b>долю вспомненного без подсказки</b>.</p></div>
+    <div class="d-sec" style="--accent:var(--theory)"><h4>Три правила</h4><ul>
+      <li><b>4-6 часов</b> глубокой учёбы в день - потолок. Дальше имитация; остальное время лёгкое: язык, повторение, быт.</li>
+      <li><b>Блоки 50/10</b> - 50 минут фокуса, 10 прочь от экрана (телефон не считается).</li>
+      <li><b>Каждый день - вспоминание.</b> Что не вспомнил сам - то и есть непройденное.</li></ul></div>
+    <div class="d-sec" style="--accent:var(--cases)"><h4>Как устроен день</h4><ul>
+      <li>Три разных блока: <b>теория</b> (впитываешь) → <b>проект</b> (делаешь руками) → <b>кейсы</b> (тренируешь мышление).</li>
+      <li>Плюс короткий блок <b>вспоминания</b> - без него выученное забудется за неделю.</li></ul></div>
+    <div class="d-sec" style="--accent:var(--project)"><h4>Как настраивать под себя</h4><ul>
+      <li>Открой день в «Неделе» → <b>Изменить</b>.</li>
+      <li><b>Двигай время</b> любого блока или сдвигай весь день на ±15/30 минут.</li>
+      <li><b>Переставляй</b> блоки стрелками - время пересчитается встык.</li>
+      <li><b>«Идеальный день»</b> - впиши время подъёма, и день разложится от него.</li>
+      <li><b>Свои блоки</b> и <b>описания</b> дня и блоков - всё правится; «Восстановить / Сбросить» откатывает к дефолту.</li>
+      <li><b>Баланс и подсказки</b> следят, чтобы глубокой работы было 4-6ч и не потерялось вспоминание.</li></ul></div>
+    <div class="d-sec" style="--accent:var(--review)"><h4>Данные и перенос</h4><ul>
+      <li>Всё хранится <b>в этом браузере</b> - приватно, без аккаунтов и интернета.</li>
+      <li>На другое устройство - через «⇄ Перенос»: код, файл или ссылка.</li></ul></div>
+    <button class="ebtn wide" onclick="finishOnboard()">Понятно, за дело</button>`;
+}
+
+/* ---- описание дня ---- */
+const LSD='urs.dayinfo.v1';
+let DAYINFO=(function(){ try{ return JSON.parse(localStorage.getItem(LSD))||{}; }catch(e){ return {}; } })();
+function saveDayInfo(){ try{ localStorage.setItem(LSD, JSON.stringify(DAYINFO)); }catch(e){} }
+function esc(x){ return (x||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function dayDesc(d){ return (DAYINFO[d]!=null && DAYINFO[d]!=='') ? DAYINFO[d] : DAYS[d].focus; }
+function setDesc(d,val){ val=(val||'').trim(); if(val===''||val===DAYS[d].focus){ delete DAYINFO[d]; } else { DAYINFO[d]=val; } saveDayInfo(); flash=true; renderDay(d); renderMain(); }
+function cardLine(d){ const t=DAYINFO[d]; if(t!=null&&t!==''){ return t.length>44?t.slice(0,44)+'…':t; } return CARD[d]||''; }
+/* ---- идеальный день от подъёма ---- */
+let showIdeal=false;
+function toggleIdeal(d){ showIdeal=!showIdeal; showAdd=false; renderDay(d); }
+function wakeDefault(d){ const it=dayItems(d).filter(x=>toMin(x.start)!=null).sort(sortByStart); return it.length?it[0].start:'06:00'; }
+function blockDur(id){ const t=BLOCKS[id]&&BLOCKS[id].time; const st=toMin(t&&t[0]), en=toMin(t&&t[1]); return (st!=null&&en!=null&&en>st)?en-st:60; }
+function idealItems(wakeMin){ let c=wakeMin; return REC_SKELETON.map(id=>{ const st=c, en=c+blockDur(id); c=en; return {id,start:toTime(st),end:toTime(en)}; }); }
+function buildIdeal(d){ const el=document.getElementById('id-wake'); let w=toMin(el?el.value:''); if(w==null) w=360; showIdeal=false; commit(d, idealItems(w)); }
+
+/* ---- редактируемые описания блоков (глобально) ---- */
+const LSBT='urs.blocktext.v1';
+let BTEXT=(function(){ try{ return JSON.parse(localStorage.getItem(LSBT))||{}; }catch(e){ return {}; } })();
+function saveBText(){ try{ localStorage.setItem(LSBT, JSON.stringify(BTEXT)); }catch(e){} }
+const ORIG={};
+Object.keys(BLOCKS).forEach(id=>{ ORIG[id]={label:BLOCKS[id].label, tagline:BLOCKS[id].tagline, purpose:BLOCKS[id].purpose}; });
+Object.keys(BTEXT).forEach(id=>{ if(BLOCKS[id]) Object.assign(BLOCKS[id], BTEXT[id]); });
+let blockEdit=false;
+function blockEdited(id){ return !!BTEXT[id]; }
+function editBlock(id){ blockEdit=true; render(); }
+function cancelBlock(id){ blockEdit=false; render(); }
+function baseOf(id){ return ORIG[id] || {label:BLOCKS[id].label, tagline:BLOCKS[id].tagline, purpose:BLOCKS[id].purpose}; }
+function saveBlock(id){
+  const nm=(document.getElementById('bt-name')||{}).value;
+  const tg=(document.getElementById('bt-tag')||{}).value;
+  const pp=(document.getElementById('bt-purpose')||{}).value;
+  const o={ label:(nm&&nm.trim())?nm.trim():baseOf(id).label, tagline:(tg!=null?tg.trim():(BLOCKS[id].tagline||'')), purpose:(pp!=null?pp.trim():(BLOCKS[id].purpose||'')) };
+  BTEXT[id]=o; Object.assign(BLOCKS[id],o); saveBText(); blockEdit=false; render();
+}
+function restoreBlock(id){ Object.assign(BLOCKS[id], baseOf(id)); delete BTEXT[id]; saveBText(); blockEdit=false; render(); }
+function renderBlockEdit(id){
+  const b=BLOCKS[id];
+  sheetTitle.textContent='Правка блока';
+  let h=`<div class="d-sec"><label class="flab">Название</label><input class="dinput" id="bt-name" maxlength="48" value="${esc(b.label)}"></div>`;
+  h+=`<div class="d-sec"><label class="flab">Подзаголовок</label><input class="dinput" id="bt-tag" maxlength="48" value="${esc(b.tagline||'')}"></div>`;
+  h+=`<div class="d-sec"><label class="flab">Для чего</label><textarea class="dta" id="bt-purpose" rows="4">${esc(b.purpose||'')}</textarea></div>`;
+  h+=`<div class="edit-actions"><button class="ebtn done" onclick="saveBlock('${id}')">Сохранить</button><button class="ebtn" onclick="cancelBlock('${id}')">Отмена</button></div>`;
+  h+=`<div class="edit-actions"><button class="ebtn reset" onclick="restoreBlock('${id}')">Восстановить исходное</button></div>`;
+  sheetBody.innerHTML=h;
+}
+
 function renderMain(){
   const wk = Object.keys(DAYS).map(d=>`<div class="wd" onclick="openDay('${d}')">
       <div class="d">${d}<span class="chev">›</span></div>
-      <div class="wf">${CARD[d]||''}</div>
+      <div class="wf">${cardLine(d)}${isCustom(d)?' · <b class="mod">изменён</b>':''}</div>
     </div>`).join('');
   document.getElementById('week').innerHTML = wk;
 }
@@ -330,10 +625,10 @@ const sheetBody=document.getElementById('sheetBody');
 const sheetTitle=document.getElementById('sheetTitle');
 const backBtn=document.getElementById('backBtn');
 
-function openBlock(id){ if(BLOCKS[id].goto==='progress'){return openView({kind:'progress'});} openView({kind:'block',id}); }
+function openBlock(id,s,e){ if(BLOCKS[id].goto==='progress'){return openView({kind:'progress'});} openView({kind:'block',id,time:(s||e)?[s,e]:null}); }
 function openDay(d){ openView({kind:'day',d}); }
 
-function openView(v){ stack.push(v); render(); overlay.classList.add('open'); }
+function openView(v){ blockEdit=false; stack.push(v); render(); overlay.classList.add('open'); }
 function back(){ stack.pop(); if(stack.length===0){overlay.classList.remove('open');} else {render();} }
 backBtn.onclick=back;
 overlay.onclick=e=>{ if(e.target===overlay) { stack=[]; overlay.classList.remove('open'); } };
@@ -342,17 +637,21 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&stack.length){back
 function render(){
   const v=stack[stack.length-1];
   backBtn.textContent = stack.length>1 ? '‹' : '✕';
-  if(v.kind==='block'){ renderBlock(v.id); }
-  else if(v.kind==='day'){ renderDay(v.d); }
+  if(v.kind==='block'){ renderBlock(v.id, v.time); }
+  else if(v.kind==='day'){ editingDay=null; renderDay(v.d); }
   else if(v.kind==='progress'){ renderProgress(); }
+  else if(v.kind==='welcome'){ renderWelcome(); }
+  else if(v.kind==='sync'){ renderSync(); }
   sheetBody.parentElement.scrollTop=0;
 }
 
-function renderBlock(id){
-  const b=BLOCKS[id]; const col=cvar(b.type);
+function renderBlock(id, time){
+  const b=BLOCKS[id]; const col=cvar(b.type); const t=time||b.time;
+  if(blockEdit){ renderBlockEdit(id); return; }
   sheetTitle.textContent=b.label;
-  let h=`<span class="d-pill" style="background:${col}">${b.tagline||''}</span>`;
-  if(b.time&&b.time[0]) h+=`<div class="d-time">${b.time[0]}${b.time[1]?' – '+b.time[1]:''}</div>`;
+  let h=`<div class="blk-top"><span class="d-pill" style="background:${col}">${b.tagline||''}</span><button class="ebtn ghost" onclick="editBlock('${id}')">\u270e Изменить</button></div>`;
+  if(blockEdited(id)) h+=`<div class="d-note">Описание изменено. В правке есть «Восстановить исходное».</div>`;
+  if(t&&t[0]) h+=`<div class="d-time">${t[0]}${t[1]?' – '+t[1]:''}</div>`;
   if(b.purpose) h+=`<div class="d-sec"><h4>Для чего</h4><p>${b.purpose}</p></div>`;
   if(b.howto) h+=`<div class="d-sec"><h4>Как использовать эффективно</h4><p>${b.howto}</p></div>`;
   if(b.examples&&b.examples.length) h+=`<div class="d-sec" style="--accent:${col}"><h4>Примеры действий</h4><ul>${b.examples.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;
@@ -362,10 +661,36 @@ function renderBlock(id){
 }
 
 function renderDay(d){
-  const o=DAYS[d];
+  const o=DAYS[d]; const items=dayItems(d); const edit=editingDay===d;
   sheetTitle.textContent=d;
-  let h=`<div class="d-sec"><p>${o.focus}</p></div>
-    <div class="d-sec"><h4>Блоки дня</h4><div class="rows">${o.rows.map(rowHtml).join('')}</div></div>`;
+  let h='';
+  if(!edit){
+    h+=`<div class="day-top"><p class="day-focus">${dayDesc(d)}</p><button class="ebtn ghost" onclick="setEdit('${d}',true)">\u270e Изменить</button></div>`;
+    h+=`<div class="d-sec"><h4>Блоки дня</h4><div class="rows">${items.length?items.map(readRow).join(''):'<div class="empty">День пуст. Нажми «Изменить» и собери его.</div>'}</div></div>`;
+    if(isCustom(d)) h+=`<div class="d-note">День изменён под тебя. В режиме правки есть «Сбросить к шаблону».</div>`;
+  } else {
+    h+=`<div class="edit-head">
+      <div class="shift"><span>Сдвиг дня:</span>
+        <button onclick="evShift('${d}',-30)">\u221230</button><button onclick="evShift('${d}',-15)">\u221215</button>
+        <button onclick="evShift('${d}',15)">+15</button><button onclick="evShift('${d}',30)">+30</button>
+      </div>
+      <button class="ebtn done" onclick="setEdit('${d}',false)">Готово</button>
+    </div>`;
+    h+=`<div class="dfield"><label>Описание дня</label><input class="dinput" value="${esc(dayDesc(d))}" maxlength="120" onchange="setDesc('${d}',this.value)" placeholder="Чем этот день полезен"></div>`;
+    h+=balanceHtml(items);
+    h+=`<div class="hints">${advise(items).map(t=>`<div class="hint${t[0]==='\u26a0'?' warn':''}">${t}</div>`).join('')}</div>`;
+    h+=`<div class="erows">${items.map((x,i)=>editRow(x,i,d,items.length)).join('')}</div>`;
+    if(!items.length) h+=`<div class="empty">Пусто. Собери день из блоков или по рекомендации.</div>`;
+    if(showAdd) h+=`<div class="addpanel">${libIds().map(id=>`<button class="chip t-${BLOCKS[id].type}" onclick="evAdd('${d}','${id}')">${BLOCKS[id].label}</button>`).join('')}<button class="chip newb" onclick="toggleNewBlock('${d}')">+ Свой блок</button>${showNewBlock?`<div class="nbform"><input id="nb-name" placeholder="Название блока" maxlength="40"><input id="nb-desc" placeholder="Описание (по желанию)" maxlength="160"><div class="nbrow"><select id="nb-color"><option value="theory">Изумрудный</option><option value="project">Янтарный</option><option value="cases">Синий</option><option value="review">Сиреневый</option><option value="rest">Бирюзовый</option><option value="routine">Серый</option></select><button class="ebtn done" onclick="createBlock('${d}')">Создать</button></div></div>`:''}</div>`;
+    if(showIdeal) h+=`<div class="idealp"><div class="ihint">Впиши, во сколько встаёшь - разложим полный учебный день от этой точки, сохранив длительности блоков. Потом двигай стрелками или правь время вручную.</div><div class="irow"><label>Подъём</label><input type="time" id="id-wake" value="${wakeDefault(d)}"><button class="ebtn done" onclick="buildIdeal('${d}')">Собрать день</button></div></div>`;
+    h+=`<div class="edit-actions">
+      <button class="ebtn add" onclick="toggleAdd('${d}')">${showAdd?'Скрыть блоки':'+ Блок'}</button>
+      <button class="ebtn rec" onclick="toggleIdeal('${d}')">\u2728 Идеальный день</button>
+      <button class="ebtn reset" onclick="evReset('${d}')">Сбросить к шаблону</button>
+    </div>`;
+    if(items.length>1) h+=`<div class="edit-actions"><button class="ebtn" onclick="evSortTime('${d}')">\u2195 Выстроить по времени</button></div>`;
+    h+=`<div class="autosave">${flash?'\u2713 Сохранено':'Изменения сохраняются автоматически'}</div>`;
+  }
   sheetBody.innerHTML=h;
 }
 
@@ -389,6 +714,16 @@ function renderProgress(){
 }
 
 renderMain();
+(function boot(){
+  try{
+    if(location.hash.indexOf('#s=')===0){
+      const o=decState(location.hash.slice(3));
+      if(confirm('Загрузить расписание из ссылки? Это заменит текущее.')){ applyState(o); renderMain(); }
+      history.replaceState(null,'',location.pathname+location.search);
+    }
+  }catch(e){}
+  try{ if(!onboarded()) openWelcome(); }catch(e){}
+})();
 </script>
 </body>
 </html>
