@@ -510,7 +510,25 @@ function decState(str){ return JSON.parse(decodeURIComponent(escape(atob(str))))
 function applyState(o){ if(!o) return; if(o.blocks){ Object.assign(CUSTOM,o.blocks); Object.assign(BLOCKS,o.blocks); saveCustom(); } if(o.blocktext){ Object.assign(BTEXT,o.blocktext); Object.keys(o.blocktext).forEach(id=>{ if(BLOCKS[id]) Object.assign(BLOCKS[id],o.blocktext[id]); }); saveBText(); } if(o.dayinfo){ Object.assign(DAYINFO,o.dayinfo); saveDayInfo(); } if(o.sched){ SCHED=o.sched; saveSched(); } }
 function shareLink(){ return location.origin+location.pathname+'#s='+encState(payload()); }
 function openSync(){ openView({kind:'sync'}); }
-function copyText(t,btn){ try{ navigator.clipboard.writeText(t).then(()=>{ if(btn){ const o=btn.textContent; btn.textContent='Скопировано \u2713'; setTimeout(()=>btn.textContent=o,1200);} }); }catch(e){} }
+function copyFlash(btn){ if(btn){ const o=btn.textContent; btn.textContent='Скопировано \u2713'; setTimeout(()=>{ btn.textContent=o; },1400); } }
+function copyFallback(t,btn){
+  let done=false;
+  try{
+    const ta=document.createElement('textarea');
+    ta.value=t; ta.style.position='fixed'; ta.style.left='-9999px'; ta.style.top='0'; ta.style.fontSize='16px';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ ta.setSelectionRange(0, t.length); }catch(_){}
+    done = !!(document.execCommand && document.execCommand('copy'));
+    document.body.removeChild(ta);
+  }catch(e){ done=false; }
+  if(done){ copyFlash(btn); }
+  else { try{ window.prompt('Скопируй вручную (выдели и копируй):', t); }catch(_){ alert('Автокопирование недоступно. Скопируй код из поля вручную или нажми «Скачать файл».'); } }
+}
+function copyText(t,btn){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(()=>copyFlash(btn)).catch(()=>copyFallback(t,btn));
+  } else { copyFallback(t,btn); }
+}
 function doExportFile(){ try{ const blob=new Blob([JSON.stringify(payload(),null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='schedule.json'; a.click(); }catch(e){} }
 function importCode(){ const el=document.getElementById('imp-code'); const v=el?el.value.trim():''; if(!v) return; try{ let o; try{ o=decState(v); }catch(_){ o=JSON.parse(v); } applyState(o); stack=[]; overlay.classList.remove('open'); renderMain(); alert('Загружено. Открой день, чтобы увидеть.'); }catch(e){ alert('Не разобрал код - проверь, что скопирован целиком.'); } }
 function importFile(inp){ const f=inp.files&&inp.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ try{ applyState(JSON.parse(r.result)); stack=[]; overlay.classList.remove('open'); renderMain(); alert('Файл загружен.'); }catch(e){ alert('Файл не читается.'); } }; r.readAsText(f); }
