@@ -4,7 +4,7 @@
 
 Single-file HTML-дашборд: открывается в браузере, работает офлайн, без сервера и аккаунтов. Внутри - метод, недельный план и редактор, который подстраивает день под живой ритм.
 
-[▶ Демо](https://aysvoch.github.io/uchis-vspominaya/) · [Формат кода переноса](docs/generate-transfer-code.md)
+[▶ Демо](https://aysvoch.github.io/learn-by-recall/) · [Формат кода переноса](docs/generate-transfer-code.md)
 
 ![Главный экран](docs/screenshot-main.png)
 
@@ -81,4 +81,4 @@ HTML / CSS / JavaScript в одном файле · шрифты встроен�
 
 ## Автор
 
-Собрал Aysvoch(tg). MIT.
+Собрал Aysvoch. MIT.
