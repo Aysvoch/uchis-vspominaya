@@ -385,12 +385,98 @@ const BLOCKS = {
   weekreview:{type:'review',label:'Разбор недели',time:[''],goto:'progress'}
 };
 
+/* ==== Программа Недели 1: Discovery и фундамент (одна тема в день) ==== */
+Object.assign(BLOCKS, {
+  mon_th:{type:'theory',label:'Теория · Discovery + JTBD',time:['07:00','09:00'],tagline:'Впитываешь новое',
+    purpose:'Понять, зачем нужен product discovery и как JTBD и Customer Development меняют угол: не «что построить», а «какую работу продукт выполняет для человека».',
+    howto:'Одна модель за подход. Разбери JTBD (работа - прогресс - контекст) и цикл CustDev (гипотеза → выход к людям → проверка). По каждой сразу сформулируй карточку-вопрос.',
+    examples:['Выписать 1 job-to-be-done своего продукта: «когда ..., я хочу ..., чтобы ...»','Расписать 4 шага Customer Development по Стиву Бланку','Отличить фичу от работы, которую она выполняет'],
+    where:'«Competing Against Luck» (Клейтон Кристенсен) - JTBD; Intercom «Jobs-to-be-Done» (бесплатный ebook); «The Four Steps to the Epiphany» (Стив Бланк) - CustDev; блог GoPractice - разделы про ценность продукта.',
+    diff:'Здесь ВПИТЫВАЕШЬ рамку мышления - не проводишь интервью и не строишь стратегию.'},
+  mon_pr:{type:'project',label:'Проект · Гайд интервью',time:['09:15','11:15'],tagline:'Производишь артефакт',
+    purpose:'Руками собрать артефакт discovery: карту гипотез и гайд для глубинного интервью под свой (или учебный) продукт.',
+    howto:'Одна задача за блок до конца. Выпиши 5 рискованных допущений и под них - открытые вопросы, не подсказывающие ответ.',
+    examples:['Таблица допущений: гипотеза - как проверю - критерий','Гайд: 8-10 открытых вопросов о прошлом опыте, не о будущем','Отметить наводящие вопросы и переписать'],
+    where:'Шаблоны и метод - Teresa Torres «Continuous Discovery Habits» (producttalk.org); структура допущений - «Testing Business Ideas» (Bland & Osterwalder).',
+    diff:'На выходе готовый артефакт (гайд + карта гипотез), а не прочитанное или обсуждённое.'},
+  mon_ca:{type:'cases',label:'Кейсы · Discovery-задача',time:['12:30','14:00'],tagline:'Тренируешь мышление',
+    purpose:'Прогнать ход рассуждения на discovery-задаче - не заучить ответ, а натренировать заход.',
+    howto:'Письменно по цепочке: контекст и цель → пользователь и его боль → как проверю гипотезу дёшево → метрика успеха → риски.',
+    examples:['«Как понять, нужен ли рынку продукт, до разработки?»','«У фичи низкое использование - как выяснить причину через discovery?»','«Сформулируй 3 гипотезы и самый дешёвый способ проверить каждую»'],
+    where:'Разборы - Lenny\u2019s Newsletter (product); банк вопросов - «Cracking the PM Interview» (McDowell & Bavaro); симулятор и блог GoPractice.',
+    diff:'Одного правильного ответа нет - тренируется способ захода, а не факты (теория) и не артефакт (проект).'},
+
+  tue_th:{type:'theory',label:'Теория · Глубинные интервью',time:['07:00','09:00'],tagline:'Впитываешь новое',
+    purpose:'Освоить, как спрашивать, чтобы получать правду, а не вежливые комплименты: правила The Mom Test.',
+    howto:'Разбери 3 правила Fitzpatrick: говори о прошлом и конкретике, а не о будущем и мнениях; не питчи; копай в реальные действия и деньги.',
+    examples:['Переписать «Вам была бы полезна такая фича?» в вопрос о прошлом опыте','Список признаков плохих данных: комплименты, гипотетика, чужие идеи','Выписать, за что человек уже платил или тратил время в этой области'],
+    where:'«The Mom Test» (Rob Fitzpatrick) - читается за вечер; конспекты на producttalk.org и в блоге GoPractice.',
+    diff:'Здесь впитываешь технику вопросов; проведение и разбор интервью - отдельно.'},
+  tue_co:{type:'theory',label:'Закрепление · Отработка вопросов',time:['09:15','11:15'],tagline:'Углубляешь',
+    purpose:'Закрепить утреннее: переписать свой гайд под правила Mom Test, добить пробелы. Проект сегодня не берём - вечером тренировка.',
+    howto:'Вернись к вопросам из гайда понедельника и прогони каждый через фильтр: про прошлое? конкретика? без наводки? Слабые перепиши.',
+    examples:['Прогнать 10 вопросов через чек-лист Mom Test','Пересказать 3 правила без конспекта','Дособрать карточки по типичным ошибкам интервьюера'],
+    where:'Тот же «The Mom Test»; чек-листы вопросов - producttalk.org.',
+    diff:'Не новое (как утро) и не проект - закрепление уже начатого.'},
+
+  wed_th:{type:'theory',label:'Теория · Стратегия и vision',time:['07:00','09:00'],tagline:'Впитываешь новое',
+    purpose:'Понять, что такое продуктовое видение и стратегия и чем они отличаются от списка фич: связка миссия → vision → стратегия → цели.',
+    howto:'Разбери одну модель стратегии (диагноз → направляющая политика → согласованные действия по Румельту) и как из vision вырастают North Star и роадмап.',
+    examples:['Сформулировать vision продукта одним предложением','Разложить стратегию на диагноз - политику - действия','Отличить «хорошую» стратегию от набора целей'],
+    where:'«Inspired» и «Empowered» (Marty Cagan, блог svpg.com); «Good Strategy Bad Strategy» (Richard Rumelt); Lenny\u2019s Newsletter - разборы product strategy.',
+    diff:'Впитываешь рамку стратегии - не пишешь свой док (проект) и не решаешь кейс.'},
+  wed_pr:{type:'project',label:'Проект · Vision + стратегия',time:['09:15','11:15'],tagline:'Производишь артефакт',
+    purpose:'Руками написать одностраничник: vision продукта + стратегия на квартал (диагноз, политика, 2-3 действия).',
+    howto:'Одна задача: взять свой или учебный продукт и заполнить one-pager. Не распыляйся на оформление - суть.',
+    examples:['One-pager: vision, целевой сегмент, ключевая проблема','Стратегия квартала: диагноз - направление - 3 действия','Связать каждое действие с метрикой'],
+    where:'Шаблоны стратегии и vision - SVPG (svpg.com) и Reforge; примеры - Lenny\u2019s Newsletter.',
+    diff:'На выходе документ стратегии - артефакт, а не теория или кейс.'},
+  wed_ca:{type:'cases',label:'Кейсы · Стратегическая задача',time:['12:30','14:00'],tagline:'Тренируешь мышление',
+    purpose:'Тренировать стратегическое мышление на кейсе: заход к выбору направления, а не готовый ответ.',
+    howto:'Письменно: контекст и цель → сегмент и боль → варианты стратегии → выбор и обоснование → риски и метрика.',
+    examples:['«Куда развивать продукт при ограниченной команде?»','«Выбери сегмент для входа и обоснуй»','«Стратегия ответа на действие конкурента»'],
+    where:'Кейсы стратегии - Lenny\u2019s Newsletter; «Cracking the PM Interview»; разборы Reforge.',
+    diff:'Тренируется ход рассуждения о направлении, а не факты и не артефакт.'},
+
+  thu_th:{type:'theory',label:'Теория · Приоритизация',time:['07:00','09:00'],tagline:'Впитываешь новое',
+    purpose:'Освоить фреймворки приоритизации и понять, когда какой: RICE, ICE, Kano, MoSCoW - у каждого своя задача.',
+    howto:'Разбери, что считает каждый и где врёт: RICE (reach·impact·confidence/effort), Kano (базовые/линейные/восторг), MoSCoW (must/should/could/won\u2019t).',
+    examples:['Посчитать RICE для 3 гипотетических фич','Разложить фичи по Kano: базовые против «вау»','Выписать 2 ситуации, где MoSCoW уместнее RICE'],
+    where:'Intercom - статья про RICE (первоисточник фреймворка); модель Kano (Noriaki Kano); ProductPlan и Reforge - обзоры методов.',
+    diff:'Впитываешь методы; применение к своему бэклогу - отдельно.'},
+  thu_co:{type:'theory',label:'Закрепление · RICE на своём',time:['09:15','11:15'],tagline:'Углубляешь',
+    purpose:'Закрепить: посчитать приоритет на реальном или учебном бэклоге. Проект не берём - вечером тренировка.',
+    howto:'Возьми 5-6 своих задач, посчитай RICE, отсортируй, проверь, где confidence завышен.',
+    examples:['RICE-таблица по своему бэклогу','Найти, где «impact» взят с потолка','Пересказать различие RICE и ICE без конспекта'],
+    where:'Калькуляторы и шаблоны RICE - ProductPlan, Notion; первоисточник - Intercom.',
+    diff:'Не новый метод, а закрепление на своих данных.'},
+
+  fri_th:{type:'theory',label:'Теория · Метрики: AARRR + NSM',time:['07:00','09:00'],tagline:'Впитываешь новое',
+    purpose:'Понять продуктовые метрики как систему: воронка AARRR (acquisition → activation → retention → revenue → referral) и North Star как одна метрика ценности.',
+    howto:'Разбери, что измеряет каждая стадия AARRR и как из ценности продукта выводится North Star (опережающий индикатор выручки, а не vanity-метрика).',
+    examples:['Разложить свой продукт по 5 стадиям AARRR','Сформулировать кандидата в North Star и его input-метрики','Отличить vanity-метрику от метрики ценности'],
+    where:'AARRR - Dave McClure «Startup Metrics for Pirates»; North Star - бесплатный «North Star Playbook» (Amplitude); «Lean Analytics» (Croll & Yoskovitz); блог GoPractice - серия про метрики.',
+    diff:'Впитываешь систему метрик; построение дерева и разбор данных - в проекте и на неделе данных.'},
+  fri_pr:{type:'project',label:'Проект · Дерево метрик',time:['09:15','11:15'],tagline:'Производишь артефакт',
+    purpose:'Руками собрать дерево метрик своего продукта: North Star и её входные метрики по стадиям AARRR.',
+    howto:'Одна задача: нарисовать дерево (NSM сверху, 3-4 input-метрики, под ними рычаги). Свяжи с тем, на что команда реально влияет.',
+    examples:['Дерево: North Star → input-метрики → рычаги','Для каждой стадии AARRR - 1 ключевая метрика','Отметить, что уже считается, а что нет'],
+    where:'Шаблон дерева - «North Star Playbook» (Amplitude); примеры - Reforge и Lenny\u2019s Newsletter (кейс Duolingo).',
+    diff:'На выходе дерево метрик - артефакт, а не теория или кейс.'},
+  fri_ca:{type:'cases',label:'Кейсы · Метрика просела',time:['12:30','14:00'],tagline:'Тренируешь мышление',
+    purpose:'Натренировать разбор метрик на кейсе: заход к диагностике, а не готовый ответ.',
+    howto:'Письменно: какая метрика и на сколько → сегментировать (канал, платформа, когорта) → гипотезы причин → как проверю → что делать.',
+    examples:['«Retention упал на 15% - найди причину»','«DAU растёт, выручка нет - почему?»','«Конверсия в активацию просела после релиза»'],
+    where:'Диагностика метрик - симулятор и блог GoPractice; кейсы - Lenny\u2019s Newsletter; «Lean Analytics».',
+    diff:'Тренируется ход диагностики, а не факты и не артефакт.'}
+});
+
 const DAYS = {
-  Пн:{lvl:'full',lname:'полный',focus:'Полный рабочий день: теория, проект и кейсы.',rows:['wake','breakfast','theory','pause','project','lunch','cases','review','english']},
-  Вт:{lvl:'half',lname:'утро',focus:'Утро на учёбу, вечером тренировка.',rows:['wakeeat','theory','consolidation','reviewT','lightday','training']},
-  Ср:{lvl:'full',lname:'полный',focus:'Полный рабочий день: теория, проект и кейсы.',rows:['wake','breakfast','theory','pause','project','lunch','cases','review','english']},
-  Чт:{lvl:'half',lname:'утро',focus:'Утро на учёбу, вечером тренировка.',rows:['wakeeat','theory','consolidation','reviewT','lightday','training']},
-  Пт:{lvl:'full',lname:'полный',focus:'Теория, проект и кейсы.',rows:['wake','breakfast','theory','pause','project','lunch','cases','review','english']},
+  Пн:{lvl:'full',lname:'полный',focus:'Discovery: Customer Development и JTBD - впитал, собрал гайд, разобрал кейс.',rows:['wake','breakfast','mon_th','pause','mon_pr','lunch','mon_ca','review','english']},
+  Вт:{lvl:'half',lname:'утро',focus:'Глубинные интервью (The Mom Test). Вечером тренировка.',rows:['wakeeat','tue_th','tue_co','reviewT','lightday','training']},
+  Ср:{lvl:'full',lname:'полный',focus:'Product strategy и vision - теория, one-pager, стратегический кейс.',rows:['wake','breakfast','wed_th','pause','wed_pr','lunch','wed_ca','review','english']},
+  Чт:{lvl:'half',lname:'утро',focus:'Приоритизация: RICE / ICE / Kano / MoSCoW. Вечером тренировка.',rows:['wakeeat','thu_th','thu_co','reviewT','lightday','training']},
+  Пт:{lvl:'full',lname:'полный',focus:'Продуктовые метрики: AARRR и North Star - дерево метрик и разбор.',rows:['wake','breakfast','fri_th','pause','fri_pr','lunch','fri_ca','review','english']},
   Сб:{lvl:'light',lname:'лёгкий',focus:'Бег и разбор недели: смотришь, как выросла доля вспомненного.',rows:['running','weekreview']},
   Вс:{lvl:'light',lname:'отдых',focus:'Восстановление, бег для себя.',rows:['running']}
 };
@@ -409,7 +495,7 @@ function rowHtml(id){
   </div>`;
 }
 
-const CARD = {Пн:'Теория · Проект · Кейсы',Вт:'Теория + тренировка',Ср:'Теория · Проект · Кейсы',Чт:'Теория + тренировка',Пт:'Теория · Проект · Кейсы',Сб:'Бег · разбор недели',Вс:'Отдых, бег для себя'};
+const CARD = {Пн:'Discovery · CustDev · JTBD',Вт:'Глубинные интервью',Ср:'Стратегия и vision',Чт:'Приоритизация',Пт:'Метрики: AARRR · NSM',Сб:'Бег · разбор недели',Вс:'Отдых, бег для себя'};
 /* ---- редактируемое расписание ---- */
 const LS_KEY='urs.sched.v1';
 let SCHED=(function(){ try{ return JSON.parse(localStorage.getItem(LS_KEY))||{}; }catch(e){ return {}; } })();
@@ -492,8 +578,8 @@ function createBlock(d){
   const type=(document.getElementById('nb-color')||{}).value||'routine';
   const desc=((document.getElementById('nb-desc')||{}).value||'').trim();
   const id='c'+Date.now().toString(36);
-  CUSTOM[id]={type,label:name,tagline:'своё',purpose:desc,howto:'',examples:[],diff:'',custom:true};
-  BLOCKS[id]=CUSTOM[id]; ORIG[id]={label:CUSTOM[id].label,tagline:CUSTOM[id].tagline,purpose:CUSTOM[id].purpose}; saveCustom(); showNewBlock=false; evAdd(d,id);
+  CUSTOM[id]={type,label:name,tagline:'своё',purpose:desc,howto:'',examples:[],where:'',diff:'',custom:true};
+  BLOCKS[id]=CUSTOM[id]; snapOrig(id); saveCustom(); showNewBlock=false; evAdd(d,id);
 }
 /* ---- индикатор баланса ---- */
 function deepMinutes(items){ const dt=['theory','project','cases']; let m=0; items.forEach(x=>{ const b=BLOCKS[x.id]; if(b&&dt.includes(b.type)){ const s=toMin(x.start),e=toMin(x.end); if(s!=null&&e!=null&&e>s) m+=e-s; } }); return m; }
@@ -507,7 +593,7 @@ function balanceHtml(items){
 function payload(){ return {v:1, sched:SCHED, blocks:CUSTOM, dayinfo:DAYINFO, blocktext:BTEXT}; }
 function encState(o){ return btoa(unescape(encodeURIComponent(JSON.stringify(o)))); }
 function decState(str){ return JSON.parse(decodeURIComponent(escape(atob(str)))); }
-function applyState(o){ if(!o) return; if(o.blocks){ Object.assign(CUSTOM,o.blocks); Object.assign(BLOCKS,o.blocks); saveCustom(); } if(o.blocktext){ Object.assign(BTEXT,o.blocktext); Object.keys(o.blocktext).forEach(id=>{ if(BLOCKS[id]) Object.assign(BLOCKS[id],o.blocktext[id]); }); saveBText(); } if(o.dayinfo){ Object.assign(DAYINFO,o.dayinfo); saveDayInfo(); } if(o.sched){ SCHED=o.sched; saveSched(); } }
+function applyState(o){ if(!o) return; if(o.blocks){ Object.assign(CUSTOM,o.blocks); Object.assign(BLOCKS,o.blocks); Object.keys(o.blocks).forEach(snapOrig); saveCustom(); } if(o.blocktext){ Object.assign(BTEXT,o.blocktext); Object.keys(o.blocktext).forEach(id=>{ if(BLOCKS[id]) Object.assign(BLOCKS[id],o.blocktext[id]); }); saveBText(); } if(o.dayinfo){ Object.assign(DAYINFO,o.dayinfo); saveDayInfo(); } if(o.sched){ SCHED=o.sched; saveSched(); } }
 function shareLink(){ return location.origin+location.pathname+'#s='+encState(payload()); }
 function openSync(){ openView({kind:'sync'}); }
 function copyFlash(btn){ if(btn){ const o=btn.textContent; btn.textContent='Скопировано \u2713'; setTimeout(()=>{ btn.textContent=o; },1400); } }
@@ -602,18 +688,27 @@ const LSBT='urs.blocktext.v1';
 let BTEXT=(function(){ try{ return JSON.parse(localStorage.getItem(LSBT))||{}; }catch(e){ return {}; } })();
 function saveBText(){ try{ localStorage.setItem(LSBT, JSON.stringify(BTEXT)); }catch(e){} }
 const ORIG={};
-Object.keys(BLOCKS).forEach(id=>{ ORIG[id]={label:BLOCKS[id].label, tagline:BLOCKS[id].tagline, purpose:BLOCKS[id].purpose}; });
+function snapOrig(id){ const b=BLOCKS[id]; if(!b) return; ORIG[id]={label:b.label, tagline:b.tagline||'', purpose:b.purpose||'', howto:b.howto||'', examples:(b.examples||[]).slice(), where:b.where||'', diff:b.diff||''}; }
+Object.keys(BLOCKS).forEach(snapOrig);
 Object.keys(BTEXT).forEach(id=>{ if(BLOCKS[id]) Object.assign(BLOCKS[id], BTEXT[id]); });
 let blockEdit=false;
 function blockEdited(id){ return !!BTEXT[id]; }
 function editBlock(id){ blockEdit=true; render(); }
 function cancelBlock(id){ blockEdit=false; render(); }
-function baseOf(id){ return ORIG[id] || {label:BLOCKS[id].label, tagline:BLOCKS[id].tagline, purpose:BLOCKS[id].purpose}; }
+function baseOf(id){ if(ORIG[id]) return ORIG[id]; const b=BLOCKS[id]||{}; return {label:b.label, tagline:b.tagline||'', purpose:b.purpose||'', howto:b.howto||'', examples:(b.examples||[]).slice(), where:b.where||'', diff:b.diff||''}; }
 function saveBlock(id){
-  const nm=(document.getElementById('bt-name')||{}).value;
-  const tg=(document.getElementById('bt-tag')||{}).value;
-  const pp=(document.getElementById('bt-purpose')||{}).value;
-  const o={ label:(nm&&nm.trim())?nm.trim():baseOf(id).label, tagline:(tg!=null?tg.trim():(BLOCKS[id].tagline||'')), purpose:(pp!=null?pp.trim():(BLOCKS[id].purpose||'')) };
+  const gv=x=>{ const el=document.getElementById(x); return el?el.value:null; };
+  const nm=gv('bt-name'), tg=gv('bt-tag'), pp=gv('bt-purpose'), hw=gv('bt-howto'), ex=gv('bt-ex'), wh=gv('bt-where'), df=gv('bt-diff');
+  const b=BLOCKS[id]||{};
+  const o={
+    label:(nm&&nm.trim())?nm.trim():baseOf(id).label,
+    tagline:(tg!=null?tg.trim():(b.tagline||'')),
+    purpose:(pp!=null?pp.trim():(b.purpose||'')),
+    howto:(hw!=null?hw.trim():(b.howto||'')),
+    examples:(ex!=null? ex.split('\n').map(s=>s.trim()).filter(Boolean) : (b.examples||[]).slice()),
+    where:(wh!=null?wh.trim():(b.where||'')),
+    diff:(df!=null?df.trim():(b.diff||''))
+  };
   BTEXT[id]=o; Object.assign(BLOCKS[id],o); saveBText(); blockEdit=false; render();
 }
 function restoreBlock(id){ Object.assign(BLOCKS[id], baseOf(id)); delete BTEXT[id]; saveBText(); blockEdit=false; render(); }
@@ -623,6 +718,10 @@ function renderBlockEdit(id){
   let h=`<div class="d-sec"><label class="flab">Название</label><input class="dinput" id="bt-name" maxlength="48" value="${esc(b.label)}"></div>`;
   h+=`<div class="d-sec"><label class="flab">Подзаголовок</label><input class="dinput" id="bt-tag" maxlength="48" value="${esc(b.tagline||'')}"></div>`;
   h+=`<div class="d-sec"><label class="flab">Для чего</label><textarea class="dta" id="bt-purpose" rows="4">${esc(b.purpose||'')}</textarea></div>`;
+  h+=`<div class="d-sec"><label class="flab">Как использовать эффективно</label><textarea class="dta" id="bt-howto" rows="4">${esc(b.howto||'')}</textarea></div>`;
+  h+=`<div class="d-sec"><label class="flab">Примеры действий <span style="opacity:.55;font-weight:400">- по одному на строку</span></label><textarea class="dta" id="bt-ex" rows="5">${esc((b.examples||[]).join('\n'))}</textarea></div>`;
+  h+=`<div class="d-sec"><label class="flab">Где искать</label><textarea class="dta" id="bt-where" rows="3">${esc(b.where||'')}</textarea></div>`;
+  h+=`<div class="d-sec"><label class="flab">Чем отличается</label><textarea class="dta" id="bt-diff" rows="3">${esc(b.diff||'')}</textarea></div>`;
   h+=`<div class="edit-actions"><button class="ebtn done" onclick="saveBlock('${id}')">Сохранить</button><button class="ebtn" onclick="cancelBlock('${id}')">Отмена</button></div>`;
   h+=`<div class="edit-actions"><button class="ebtn reset" onclick="restoreBlock('${id}')">Восстановить исходное</button></div>`;
   sheetBody.innerHTML=h;
@@ -673,6 +772,7 @@ function renderBlock(id, time){
   if(b.purpose) h+=`<div class="d-sec"><h4>Для чего</h4><p>${b.purpose}</p></div>`;
   if(b.howto) h+=`<div class="d-sec"><h4>Как использовать эффективно</h4><p>${b.howto}</p></div>`;
   if(b.examples&&b.examples.length) h+=`<div class="d-sec" style="--accent:${col}"><h4>Примеры действий</h4><ul>${b.examples.map(e=>`<li>${e}</li>`).join('')}</ul></div>`;
+  if(b.where) h+=`<div class="d-sec"><h4>Где искать</h4><p>${b.where}</p></div>`;
   if(b.diff) h+=`<div class="d-sec"><h4>Чем отличается</h4><div class="d-diff" style="--accent:${col}">${b.diff}</div></div>`;
   if(b.note) h+=`<div class="d-note">${b.note}</div>`;
   sheetBody.innerHTML=h;
